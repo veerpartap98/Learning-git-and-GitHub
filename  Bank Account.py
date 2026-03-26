@@ -21,7 +21,7 @@ def opening_bank_account():
             return
         
         with open(fiel,'w', newline='') as f :
-            field_names = ['Name','Phone Number','DOB','Balance','Date','Time']
+            field_names = ['Name','Phone Number','DOB','Balance','Date']
             account = csv.DictWriter(f,fieldnames=field_names)
             account.writeheader()
             account.writerow({
@@ -57,7 +57,7 @@ def deposit():
                 balnce = int(row['Balance']) + amount
                         
         with open(f'{name} S-o {father_name}.csv','a') as f :
-            field_names = ['Name','Phone Number','DOB','Balance','Date','Time']
+            field_names = ['Name','Phone Number','DOB','Balance','Date']
             account2 = csv.DictWriter(f,fieldnames=field_names)
             account2.writerow({
                 'Name' : name,
@@ -105,27 +105,25 @@ def sending_money():
                 balnce = int(row['Balance']) + amount
                 
         with open(fiel_name,'a') as f :
-            field_names = ['Name','Phone Number','DOB','Balance','Date','Time']
+            field_names = ['Name','Phone Number','DOB','Balance','Date']
             account3 = csv.DictWriter(f,fieldnames=field_names)
             account3.writerow({
                 'Name' : name,
                 'Phone Number' : 'xxxx',
                 'DOB' : 'YYYY-MM-DD',
                 'Balance' : balance,
-                'Date' : d.date.today(),
-                'Time' : d.datetime.now()
+                'Date' : d.date.today()
             })
             
         with open(fiel_name2,'a') as f :
-                field_names = ['Name','Phone Number','DOB','Balance','Date','Time']
+                field_names = ['Name','Phone Number','DOB','Balance','Date']
                 account4 = csv.DictWriter(f,fieldnames=field_names)
                 account4.writerow({
                     'Name' : name,
                     'Phone Number' : 'xxxx',
                     'DOB' : 'YYYY-MM-DD',
                     'Balance' : balnce,
-                    'Date' : d.date.today(),
-                    'Time' : d.time.now()
+                    'Date' : d.date.today()
                 })
         
         print(f'{name}, your transaction is completed successfully!')
